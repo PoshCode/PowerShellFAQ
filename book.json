@@ -1,0 +1,10 @@
+{
+    "plugins": [
+        "theme-faq",
+        "-fontsettings",
+        "-sharing"
+    ],
+    "structure": {
+        "summary": "faq.md"
+    }
+}
