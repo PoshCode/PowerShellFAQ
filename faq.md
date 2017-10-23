@@ -1,4 +1,4 @@
-## [The PowerShell FAQ](README.md)
+# [The PowerShell FAQ](README.md)
 
 ## Learning Paths
 
@@ -11,8 +11,6 @@
 ## Justification
 
 * [Why should I learn PowerShell?](why-powershell.md)
-* When is PowerShell better than Python?
-* How can I get my boss to let me automate?
 
 ## Getting Started
 
