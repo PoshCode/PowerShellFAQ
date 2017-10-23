@@ -22,8 +22,8 @@
 
 ## Frequently Asked FAQ Questions
 
-* [What's the license for this FAQ?](faq-faq.md)
-* [How can I contribute to this FAQ?](how-can-i-contribute-to-this-faq.md)
+* [What's the license for this FAQ?](LICENSE.md)
+* [How can I contribute to this FAQ?](CONTRIBUTING.md)
 
 
 
