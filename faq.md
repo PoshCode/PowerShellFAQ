@@ -10,5 +10,12 @@ PowerShell Frequently Asked Questions
 
 ## Justification
 * [Why should I learn PowerShell?](why-powershell.md)
-* [When is PowerShell better than Python?](is-powershell-better-than.md)
-* [How can I get my boss to let me automate?](dealing-with-reluctant-managers.md)
+* ~~[When is PowerShell better than Python?]()~~
+* ~~[How can I get my boss to let me automate?]()~~
+
+## Getting Started
+* [How do I fix "the execution of scripts is disabled on this system" errors?](execution-policy.md)
+* [How do I set the PATH in PowerShell?](environment-variables.md)
+* [How do I pass parameters to PowerShell scripts?](parameters.md)
+* [How do I determine the location of the current PowerShell script?](script-root.md)
+* [How do I determine the current version of PowerShell?](powershell-version.md)
