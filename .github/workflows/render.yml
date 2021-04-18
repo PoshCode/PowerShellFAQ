@@ -15,7 +15,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
         with:
-          fetch-depth: 3
+          ref: ${{ github.event.pull_request.head.sha }}
 
       # Todo: cache this as a tool
       - name: Setup mdBook
