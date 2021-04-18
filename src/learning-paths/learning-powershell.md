@@ -1,0 +1,3 @@
+# Is there any free training for PowerShell
+
+Most PowerShell content from Microsoft is in the form of product-specific training. As far as the language itself, there's rarely more than the [introduction to PowerShell](https://docs.microsoft.com/en-us/learn/modules/introduction-to-powershell/) on Microsoft Learn. You should also check out [PS Koans](https://github.com/vexx32/PSKoans). There are a lot of videos, books, and commercial classes, but that's a different question.
