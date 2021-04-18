@@ -1,0 +1,55 @@
+name: Update GitHub Pages
+
+on:
+  # push:
+  #   branches:
+  #     - master
+  pull_request:
+
+jobs:
+  release:
+    name: GitHub Pages
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v1
+
+      - id: mdBook
+        uses: pozetroninc/github-action-get-latest-release@master
+        with:
+          owner: rust-lang
+          repo: mdBook
+          excludes: prerelease, draft
+
+      - name: Setup mdBook
+        shell: pwsh
+        run: |
+          Invoke-WebRequest -OutFile mdbook.tgz (
+            Invoke-RestMethod https://api.github.com/repos/rust-lang/mdBook/releases/latest
+            ).assets.where{$_.name -like "*linux-gnu.tar.gz"}.browser_download_url
+          tar -zxvf mdbook.tgz
+          Remove-Item mdbook.tgz
+          mkdir ~/bin
+          Move-Item ./mdbook/mdbook ~/bin/mdbook
+          "~/bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+
+      - name: Build Book
+        run: |
+          mdbook build
+          cp ./config/CNAME ./book/CNAME
+
+      - name: Push changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: git push
+
+      # - name: Deploy Book
+      #   env:
+      #       ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+      #       PUBLISH_BRANCH: gh-pages
+      #       PUBLISH_DIR: ./book
+      #       SCRIPT_MODE: true
+      #   run: |
+      #       wget https://raw.githubusercontent.com/peaceiris/actions-gh-pages/v2.5.0/entrypoint.sh
+      #       bash ./entrypoint.sh
