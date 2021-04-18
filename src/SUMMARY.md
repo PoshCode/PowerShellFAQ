@@ -4,9 +4,9 @@
 
 # Learning Paths
 
+* [Is there any free training for PowerShell?](learning-paths/learning-powershell.md)
 * [What books do you recommend for newbies?](learning-paths/books-for-newbies.md)
 * [What books do you recommend for programmers?](learning-paths/books-for-programmers.md)
-* [What other books can you recommend?](learning-paths/more-book-recommendations.md)
 * [What free PowerShell ebooks are there?](learning-paths/free-ebooks.md)
 * [Are there free video classes?](learning-paths/video-resources.md)
 
