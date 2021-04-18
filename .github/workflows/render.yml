@@ -15,13 +15,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v1
 
-      - id: mdBook
-        uses: pozetroninc/github-action-get-latest-release@master
-        with:
-          owner: rust-lang
-          repo: mdBook
-          excludes: prerelease, draft
-
+      # Todo: cache this as a tool
       - name: Setup mdBook
         shell: pwsh
         run: |
@@ -31,13 +25,18 @@ jobs:
           tar -zxvf mdbook.tgz
           Remove-Item mdbook.tgz
           mkdir ~/bin
-          Move-Item ./mdbook/mdbook ~/bin/mdbook
+          Move-Item ./mdbook ~/bin/mdbook
           "~/bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+
+      - name: Checkout PR
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh pr checkout ${{ github.event.pull_request.number }}
 
       - name: Build Book
         run: |
           mdbook build
-          cp ./config/CNAME ./book/CNAME
+        # cp ./config/CNAME ./book/CNAME
 
       - name: Push changes
         env:
