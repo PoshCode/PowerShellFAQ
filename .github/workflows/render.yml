@@ -1,10 +1,9 @@
 name: Update GitHub Pages
 
 on:
-  # push:
-  #   branches:
-  #     - master
-  pull_request:
+  push:
+    branches:
+      - master
 
 jobs:
   release:
@@ -14,8 +13,6 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
 
       # Todo: cache this as a tool
       - name: Setup mdBook
