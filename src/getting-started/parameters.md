@@ -4,7 +4,7 @@ Passing arguments in PowerShell is the same as in any other *shell*: you just ty
 
 Accepting parameters in a PowerShell script (or function) is done by adding a `param` block at the top with a comma-separated list of parameter names:
 
-```text
+```powershell
 function Test-Script {
     param($Name,$Age)
     "$Name is roughly $Age years old"
